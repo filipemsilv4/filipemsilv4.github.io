@@ -1,12 +1,27 @@
-import Image from 'next/image'
+import React from 'react';
+import Image from 'next/image';
+import styles from '@/styles/Header.module.css';
 
-export default function Header() {
+const Header: React.FC = () => {
   return (
-    <header className="header">
-      <div className="profile-image">
-        <Image src="/profile_image.jpg" alt="Paulo Filipe" width={100} height={100} />
+    <header className={styles.header}>
+      <div className={`container ${styles.headerContent}`}>
+        <div className={styles.imageWrapper}>
+          <Image 
+            src="/profile-image.jpg"
+            alt="Paulo Filipe"
+            width={100}
+            height={100}
+            className={styles.profilePhoto}
+          />
+        </div>
+        <div className={styles.textContent}>
+          <h1 className={styles.title}>Paulo Filipe</h1>
+          <p className={styles.subtitle}>Computer Science Student | Bug Squasher | Recursive Acronym Enthusiast</p>
+        </div>
       </div>
-      <h1 className="glitch" data-text="Paulo Filipe Moreira da Silva">Paulo Filipe Moreira da Silva</h1>
     </header>
-  )
-}
+  );
+};
+
+export default Header;
