@@ -2,7 +2,7 @@
 
 :root {
   --primary-color: #0f0;
-  --background-color: #000;
+  --background-color: rgba(0, 0, 0, 0.8);
   --text-color: #0f0;
 }
 
@@ -14,14 +14,22 @@
 
 body {
   font-family: 'VT323', monospace;
-  background-color: var(--background-color);
   color: var(--text-color);
   line-height: 1.6;
+  background-color: black;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  position: relative;
+  z-index: 1;
 }
 
+html, body, div#__next {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
