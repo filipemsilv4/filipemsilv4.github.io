@@ -9,25 +9,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Animação de scroll
-    const sections = document.querySelectorAll('.section');
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                } else {
-                    entry.target.classList.remove('visible');
-                }
-            });
-        },
-        {
-            threshold: 0.1
+    // Antes de imprimir, oculta o botão de idioma
+    window.addEventListener('beforeprint', () => {
+        const langLink = document.querySelector('.language-link');
+        if (langLink) {
+            langLink.style.display = 'none';
         }
-    );
+    });
 
-    sections.forEach(section => {
-        section.classList.add('hidden');
-        observer.observe(section);
+    // Após a impressão, restaura o botão de idioma
+    window.addEventListener('afterprint', () => {
+        const langLink = document.querySelector('.language-link');
+        if (langLink) {
+            langLink.style.display = '';
+        }
     });
 });
