@@ -150,8 +150,8 @@ body {
 
 .item-content {
     flex: 1;
-    min-width: 0; /* Permite que o conteúdo encolha se necessário */
-    padding-right: 20px; /* Espaço para a data */
+    min-width: 0;
+    padding-right: 20px;
 }
 
 .role {
@@ -164,8 +164,8 @@ body {
 .period, .date {
     color: #666;
     font-size: 0.9em;
-    min-width: max-content; /* Impede que a data quebre em várias linhas */
-    margin-top: 2px; /* Alinha com o título */
+    min-width: max-content;
+    margin-top: 2px;
 }
 
 .experience-item ul {
@@ -316,6 +316,81 @@ body {
 
     .skills-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Print styles */
+@media print {
+    @page {
+        margin: 2cm 0; /* Recuo superior/inferior para todas as páginas */
+    }
+
+    @page :first {
+        margin-top: 0; /* Remove recuo superior apenas na primeira página */
+    }
+
+    body {
+        padding: 0 2cm !important;
+        max-width: none !important;
+        margin: 0 !important;
+    }
+
+    .header {
+        width: auto;
+        left: 0;
+        right: 0;
+        margin: 0 -2cm; /* Compensa o padding do body */
+        padding: 40px 2cm 30px !important; /* Mantém padding interno do header */
+        position: relative;
+    }
+
+    /* Ajuste especial para o topo da primeira página */
+    .header:first-child {
+        margin-top: 0cm; /* Compensa o margin-top do @page geral */
+    }
+
+    .container {
+        padding: 0 !important;
+        max-width: none !important;
+    }
+
+    .header .container {
+        padding: 0 !important;
+    }
+
+    /* Mantenha o restante dos estilos de impressão originais abaixo */
+    .header .container {
+        flex-direction: row !important;
+        text-align: left !important;
+    }
+
+    .header-content {
+        text-align: left !important;
+    }
+
+    .contact-info {
+        align-items: flex-start !important;
+    }
+
+    .first-names {
+        display: inline !important;
+    }
+
+    .experience-item,
+    .education-item,
+    .course-item,
+    .competition-item,
+    .language-item,
+    .skill-category {
+        page-break-inside: avoid;
+    }
+
+    .language-link {
+        display: none;
+    }
+
+    hr.section-divider {
+        margin: 15px 0;
     }
 }
 
