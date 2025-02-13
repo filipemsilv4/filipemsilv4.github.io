@@ -10,7 +10,6 @@ html {
 
 body {
     font-family: 'Zilla Slab', serif;
-    line-height: 1.5;
     color: #202020;
     background-color: #FFFFFF;
     max-width: 850px;
@@ -38,11 +37,38 @@ body {
     margin-right: -50vw;
 }
 
+.print-url {
+    display: none;
+    color: #333333;
+    font-size: 0.9em;
+    align-items: center;
+    gap: 8px;
+}
+
 .header .container {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 30px;
+    position: relative;
+}
+
+.language-link {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: rgba(230, 230, 227, 0.9);
+    padding: 8px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: inherit;
+}
+
+.language-link:visited {
+    color: inherit;
+    text-decoration: none;
 }
 
 .profile-image {
@@ -58,7 +84,7 @@ body {
 }
 
 .header h1 {
-    font-size: 2em;
+    font-size: 2.4em;
     font-weight: 700;
     color: #000000;
     margin-bottom: 10px;
@@ -117,8 +143,8 @@ body {
 .section h3 {
     color: #333333;
     font-size: 1em;
-    margin-bottom: 5px;
-    font-weight: 600;
+    margin-bottom: 2px;
+    font-weight: 700;
 }
 
 /* Experience Section */
@@ -131,8 +157,8 @@ body {
 
 .item-content {
     flex: 1;
-    min-width: 0; /* Permite que o conteúdo encolha se necessário */
-    padding-right: 20px; /* Espaço para a data */
+    min-width: 0;
+    padding-right: 20px;
 }
 
 .role {
@@ -145,18 +171,18 @@ body {
 .period, .date {
     color: #666;
     font-size: 0.9em;
-    min-width: max-content; /* Impede que a data quebre em várias linhas */
-    margin-top: 2px; /* Alinha com o título */
+    min-width: max-content;
+    margin-top: 2px;
 }
 
 .experience-item ul {
-    margin-top: 5px;
+    margin-top: 2px;
     margin-left: 20px;
     list-style: disc;
 }
 
 .experience-item li {
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 .experience-item a {
@@ -177,7 +203,7 @@ body {
 }
 
 .skill-category h3 {
-    margin-bottom: 10px;
+    margin-bottom: 2px;
     padding-left: 0;
 }
 
@@ -187,7 +213,7 @@ body {
 }
 
 .skill-category li {
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     position: relative;
     padding-left: 15px;
 }
@@ -218,7 +244,7 @@ body {
 
 .language-progress {
     width: 100%;
-    height: 20px;
+    height: 15px;
     background-color: #f1edeb;
     position: relative;
 }
@@ -243,7 +269,6 @@ body {
 .achievement {
     color: #a78172;
     font-weight: 500;
-    margin-top: 5px;
 }
 
 /* Section Divider */
@@ -297,6 +322,117 @@ body {
 
     .skills-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Print styles */
+@media print {
+    @page {
+        margin: 2cm 0; /* Recuo superior/inferior para todas as páginas */
+    }
+
+    @page :first {
+        margin-top: 0; /* Remove recuo superior apenas na primeira página */
+    }
+
+    body {
+        padding: 0 2cm !important;
+        max-width: none !important;
+        margin: 0 !important;
+    }
+
+    .header {
+        width: auto;
+        left: 0;
+        right: 0;
+        margin: 0 -2cm; /* Compensa o padding do body */
+        padding: 40px 2cm 30px !important; /* Mantém padding interno do header */
+        position: relative;
+    }
+
+    /* Ajuste especial para o topo da primeira página */
+    .header:first-child {
+        margin-top: 0cm; /* Compensa o margin-top do @page geral */
+    }
+
+    .container {
+        padding: 0 !important;
+        max-width: none !important;
+    }
+
+    .header .container {
+        padding: 0 !important;
+    }
+
+    /* Mantenha o restante dos estilos de impressão originais abaixo */
+    .header .container {
+        flex-direction: row !important;
+        text-align: left !important;
+    }
+
+    .header-content {
+        text-align: left !important;
+    }
+
+    .contact-info {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 5px 30px !important;
+        align-items: flex-start !important;
+    }
+
+    .first-names {
+        display: inline !important;
+    }
+
+    .experience-item,
+    .education-item,
+    .course-item,
+    .competition-item {
+        flex-direction: row !important;
+        gap: 20px !important;
+        page-break-inside: avoid;
+    }
+
+    .item-content {
+        padding-right: 20px !important;
+    }
+
+    .period, .date {
+        margin-top: 2px !important;
+        text-align: right !important;
+        min-width: 80px !important;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    .language-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .language-item,
+    .skill-category {
+        page-break-inside: avoid;
+    }
+
+    .language-link {
+        display: none;
+    }
+
+    .print-url {
+        display: flex;
+        color: #333333;
+        font-size: 0.9em;
+        align-items: center;
+        gap: 8px;
+    }
+
+    hr.section-divider {
+        margin: 15px 0;
     }
 }
 
