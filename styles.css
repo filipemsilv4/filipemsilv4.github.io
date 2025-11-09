@@ -236,6 +236,81 @@ body {
     gap: 20px;
 }
 
+/* Institution Group */
+.institution-group {
+    margin-bottom: 25px;
+}
+
+.institution-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+    gap: 20px;
+}
+
+.institution-header h3 {
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.institution-period {
+    color: var(--role-color);
+    font-size: 0.9em;
+    font-weight: 400;
+    min-width: max-content;
+    transition: color 0.3s ease;
+}
+
+.position-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    padding-left: 20px;
+    border-left: 1px solid var(--divider-color);
+    gap: 20px;
+    transition: border-color 0.3s ease;
+}
+
+.position-item:last-child {
+    margin-bottom: 0;
+}
+
+.position-content {
+    flex: 1;
+    min-width: 0;
+    padding-right: 20px;
+}
+
+.position-content h4 {
+    font-size: 0.95em;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 5px;
+    font-style: italic;
+    transition: color 0.3s ease;
+}
+
+.position-period {
+    color: var(--role-color);
+    font-size: 0.85em;
+    min-width: max-content;
+    margin-top: 2px;
+    transition: color 0.3s ease;
+}
+
+.position-content ul {
+    margin-top: 5px;
+    margin-left: 20px;
+    list-style: disc;
+}
+
+.position-content li {
+    margin-bottom: 2px;
+}
+
 .item-content {
     flex: 1;
     min-width: 0;
@@ -275,6 +350,16 @@ body {
 }
 
 .experience-item a:hover {
+    text-decoration: underline;
+}
+
+.institution-header a {
+    color: inherit;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.institution-header a:hover {
     text-decoration: underline;
 }
 
@@ -402,6 +487,26 @@ body {
     }
 
     .period, .date {
+        margin-top: 0;
+    }
+
+    .institution-header {
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+    }
+
+    .position-item {
+        flex-direction: column;
+        gap: 5px;
+        padding-left: 15px;
+    }
+
+    .position-content {
+        padding-right: 0;
+    }
+
+    .position-period {
         margin-top: 0;
     }
 
@@ -565,6 +670,45 @@ body {
     }
 
     .period, .date {
+        margin-top: 2px !important;
+        text-align: right !important;
+        min-width: 80px !important;
+    }
+
+    .institution-group {
+        page-break-inside: avoid;
+        margin-bottom: 25px;
+    }
+
+    .institution-header {
+        flex-direction: row !important;
+        gap: 20px !important;
+        align-items: baseline !important;
+    }
+
+    .institution-period {
+        color: #666 !important;
+        text-align: right !important;
+    }
+
+    .position-item {
+        flex-direction: row !important;
+        gap: 20px !important;
+        padding-left: 20px !important;
+        border-left-color: #EAEAEA !important;
+        page-break-inside: avoid;
+    }
+
+    .position-content {
+        padding-right: 20px !important;
+    }
+
+    .position-content h4 {
+        color: #333333 !important;
+    }
+
+    .position-period {
+        color: #666 !important;
         margin-top: 2px !important;
         text-align: right !important;
         min-width: 80px !important;
