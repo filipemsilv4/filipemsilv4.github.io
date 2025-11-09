@@ -1,3 +1,33 @@
+:root {
+    --bg-color: #FFFFFF;
+    --text-color: #202020;
+    --header-bg: #e6e6e3;
+    --section-bg: #efefef;
+    --divider-color: #EAEAEA;
+    --link-color: #333333;
+    --link-hover: #555;
+    --role-color: #666;
+    --progress-bg: #f1edeb;
+    --progress-bar: #a78172;
+    --achievement-color: #a78172;
+    --toggle-bg: rgba(230, 230, 227, 0.9);
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --header-bg: #2d2d2d;
+    --section-bg: #252525;
+    --divider-color: #3a3a3a;
+    --link-color: #c0c0c0;
+    --link-hover: #e0e0e0;
+    --role-color: #a0a0a0;
+    --progress-bg: #3a3a3a;
+    --progress-bar: #8b6f5e;
+    --achievement-color: #b89584;
+    --toggle-bg: rgba(45, 45, 45, 0.9);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,11 +40,12 @@ html {
 
 body {
     font-family: 'Zilla Slab', serif;
-    color: #202020;
-    background-color: #FFFFFF;
+    color: var(--text-color);
+    background-color: var(--bg-color);
     max-width: 850px;
     margin: 0 auto;
     padding: 0 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -26,7 +57,7 @@ body {
 
 /* Header */
 .header {
-    background-color: #e6e6e3;
+    background-color: var(--header-bg);
     padding: 40px 0;
     margin-bottom: 0;
     width: 100vw;
@@ -35,6 +66,7 @@ body {
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
+    transition: background-color 0.3s ease;
 }
 
 .print-url {
@@ -53,22 +85,66 @@ body {
     position: relative;
 }
 
-.language-link {
+.header-controls {
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 1000;
-    background-color: rgba(230, 230, 227, 0.9);
-    padding: 8px 12px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    color: inherit;
+    display: flex;
+    gap: 8px;
+    align-items: center;
 }
 
-.language-link:visited {
+.control-btn {
+    background-color: var(--toggle-bg);
+    padding: 10px 14px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.control-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background-color: var(--toggle-bg);
+    opacity: 0.95;
+}
+
+.control-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.control-btn:visited {
     color: inherit;
     text-decoration: none;
+}
+
+.language-link {
+    /* Herda estilos de .control-btn */
+}
+
+.theme-toggle {
+    /* Herda estilos de .control-btn */
+}
+
+.theme-toggle i {
+    transition: transform 0.3s ease;
+    font-size: 1em;
+}
+
+[data-theme="dark"] .theme-toggle i.fa-moon {
+    transform: rotate(360deg);
 }
 
 .profile-image {
@@ -86,8 +162,9 @@ body {
 .header h1 {
     font-size: 2.4em;
     font-weight: 700;
-    color: #000000;
+    color: var(--text-color);
     margin-bottom: 10px;
+    transition: color 0.3s ease;
 }
 
 .first-names, .last-names {
@@ -102,7 +179,7 @@ body {
 }
 
 .contact-info a {
-    color: #333333;
+    color: var(--link-color);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -112,16 +189,17 @@ body {
 }
 
 .contact-info a:hover {
-    color: #555;
+    color: var(--link-hover);
 }
 
 .contact-info i {
-    color: #000;
+    color: var(--text-color);
+    transition: color 0.3s ease;
 }
 
 /* Section titles */
 .section h2 {
-    color: #202020;
+    color: var(--text-color);
     font-size: 1.125em;
     font-weight: 700;
     text-transform: uppercase;
@@ -130,21 +208,24 @@ body {
     justify-content: center;
     gap: 8px;
     margin-bottom: 20px;
-    background-color: #efefef;
+    background-color: var(--section-bg);
     padding: 3px;
     width: 100%;
     text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .section h2 i {
-    color: #000;
+    color: var(--text-color);
+    transition: color 0.3s ease;
 }
 
 .section h3 {
-    color: #333333;
+    color: var(--text-color);
     font-size: 1em;
     margin-bottom: 2px;
     font-weight: 700;
+    transition: color 0.3s ease;
 }
 
 /* Experience Section */
@@ -163,16 +244,18 @@ body {
 
 .role {
     font-style: italic;
-    color: #666;
+    color: var(--role-color);
     font-size: 0.9em;
     margin-bottom: 3px;
+    transition: color 0.3s ease;
 }
 
 .period, .date {
-    color: #666;
+    color: var(--role-color);
     font-size: 0.9em;
     min-width: max-content;
     margin-top: 2px;
+    transition: color 0.3s ease;
 }
 
 .experience-item ul {
@@ -245,38 +328,44 @@ body {
 .language-progress {
     width: 100%;
     height: 15px;
-    background-color: #f1edeb;
+    background-color: var(--progress-bg);
     position: relative;
+    transition: background-color 0.3s ease;
 }
 
 .progress-bar {
     height: 100%;
-    background-color: #a78172;
+    background-color: var(--progress-bar);
+    transition: background-color 0.3s ease;
 }
 
 /* Education & Courses Section */
 .institution {
-    color: #666;
+    color: var(--role-color);
     font-size: 0.9em;
+    transition: color 0.3s ease;
 }
 
 .location {
-    color: #666;
+    color: var(--role-color);
     font-size: 0.9em;
+    transition: color 0.3s ease;
 }
 
 /* Competitions Section */
 .achievement {
-    color: #a78172;
+    color: var(--achievement-color);
     font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 /* Section Divider */
 .section-divider {
     border: none;
     height: 1px;
-    background-color: #EAEAEA;
+    background-color: var(--divider-color);
     margin: 20px 0;
+    transition: background-color 0.3s ease;
 }
 
 /* Responsive Design */
@@ -323,10 +412,38 @@ body {
     .skills-grid {
         grid-template-columns: 1fr;
     }
+
+    .header-controls {
+        top: 15px;
+        right: 15px;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .control-btn {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
 }
 
 /* Print styles */
 @media print {
+    /* Força tema claro na impressão */
+    [data-theme="dark"] {
+        --bg-color: #FFFFFF !important;
+        --text-color: #202020 !important;
+        --header-bg: #e6e6e3 !important;
+        --section-bg: #efefef !important;
+        --divider-color: #EAEAEA !important;
+        --link-color: #333333 !important;
+        --link-hover: #555 !important;
+        --role-color: #666 !important;
+        --progress-bg: #f1edeb !important;
+        --progress-bar: #a78172 !important;
+        --achievement-color: #a78172 !important;
+        --toggle-bg: rgba(230, 230, 227, 0.9) !important;
+    }
+
     @page {
         margin: 2cm 0; /* Recuo superior/inferior para todas as páginas */
     }
@@ -339,6 +456,8 @@ body {
         padding: 0 2cm !important;
         max-width: none !important;
         margin: 0 !important;
+        background-color: #FFFFFF !important;
+        color: #202020 !important;
     }
 
     .header {
@@ -348,6 +467,53 @@ body {
         margin: 0 -2cm; /* Compensa o padding do body */
         padding: 40px 2cm 30px !important; /* Mantém padding interno do header */
         position: relative;
+        background-color: #e6e6e3 !important;
+    }
+
+    .header h1 {
+        color: #000000 !important;
+    }
+
+    .contact-info a,
+    .contact-info i {
+        color: #333333 !important;
+    }
+
+    .section h2 {
+        color: #202020 !important;
+        background-color: #efefef !important;
+    }
+
+    .section h2 i {
+        color: #000 !important;
+    }
+
+    .section h3 {
+        color: #333333 !important;
+    }
+
+    .role,
+    .period,
+    .date,
+    .institution,
+    .location {
+        color: #666 !important;
+    }
+
+    .language-progress {
+        background-color: #f1edeb !important;
+    }
+
+    .progress-bar {
+        background-color: #a78172 !important;
+    }
+
+    .achievement {
+        color: #a78172 !important;
+    }
+
+    hr.section-divider {
+        background-color: #EAEAEA !important;
     }
 
     /* Ajuste especial para o topo da primeira página */
@@ -419,8 +585,8 @@ body {
         page-break-inside: avoid;
     }
 
-    .language-link {
-        display: none;
+    .header-controls {
+        display: none !important;
     }
 
     .print-url {

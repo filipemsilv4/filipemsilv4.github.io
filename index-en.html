@@ -9,6 +9,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <script>
+        // Aplica o tema antes do carregamento completo para evitar FOUC
+        (function() {
+            function getSystemTheme() {
+                try {
+                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                        return 'dark';
+                    }
+                } catch (e) {}
+                return 'light';
+            }
+            const savedTheme = localStorage.getItem('theme');
+            const initialTheme = (savedTheme === 'dark' || savedTheme === 'light') ? savedTheme : getSystemTheme();
+            document.documentElement.setAttribute('data-theme', initialTheme);
+        })();
+    </script>
 </head>
 <body>
     <header class="header">
@@ -22,7 +38,12 @@
                     <a href="https://www.linkedin.com/in/filipemsilv4/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> /in/filipemsilv4</a>
                     <span class="print-url"><i class="fas fa-globe"></i> paulofilipe.com</span>
                 </div>
-                <a href="index.html" class="language-link"><i class="fas fa-language"></i> PT</a>
+                <div class="header-controls">
+                    <a href="index.html" class="control-btn language-link"><i class="fas fa-language"></i> PT</a>
+                    <button class="control-btn theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon" id="themeIcon"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
