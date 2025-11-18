@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +9,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
     <script>
         // Aplica o tema antes do carregamento completo para evitar FOUC
-        (function() {
+        (function () {
             function getSystemTheme() {
                 try {
                     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                         return 'dark';
                     }
-                } catch (e) {}
+                } catch (e) { }
                 return 'light';
             }
             const savedTheme = localStorage.getItem('theme');
@@ -26,6 +29,7 @@
         })();
     </script>
 </head>
+
 <body>
     <header class="header">
         <div class="container">
@@ -33,9 +37,12 @@
             <div class="header-content">
                 <h1><span class="first-names">Paulo Filipe</span> <span class="last-names">Moreira da Silva</span></h1>
                 <div class="contact-info">
-                    <a href="mailto:contato@paulofilipe.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i> contato@paulofilipe.com</a>
-                    <a href="https://github.com/filipemsilv4" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> @filipemsilv4</a>
-                    <a href="https://www.linkedin.com/in/filipemsilv4/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> /in/filipemsilv4</a>
+                    <a href="mailto:contato@paulofilipe.com" target="_blank" rel="noopener noreferrer"><i
+                            class="fas fa-envelope"></i> contato@paulofilipe.com</a>
+                    <a href="https://github.com/filipemsilv4" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-github"></i> @filipemsilv4</a>
+                    <a href="https://www.linkedin.com/in/filipemsilv4/" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-linkedin"></i> /in/filipemsilv4</a>
                     <span class="print-url"><i class="fas fa-globe"></i> paulofilipe.com</span>
                 </div>
                 <div class="header-controls">
@@ -49,26 +56,38 @@
     </header>
 
     <main class="main">
-        <section class="section profile">
+        <section class="section profile scroll-hidden">
             <div class="container">
                 <h2><i class="fas fa-user"></i> PROFILE</h2>
-                <p>Co-founder and CTO at Flecha<a href="https://flecha.ia.br" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a>, where I lead the development of a SaaS platform that uses AI to transform qualitative feedback into strategic business intelligence. Computer Science student at the Federal Institute of Education, Science and Technology of Northern Minas Gerais, with a solid foundation in algorithms and data structures, having reached the ICPC South America/Brazil Finals in 2023 and been Northern Minas Gerais champion twice. Passionate about creating scalable, high-impact solutions that solve real-world problems.</p>
+                <p>Co-founder and CTO at Flecha<a href="https://flecha.ia.br" target="_blank"
+                        rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a>, where I lead the
+                    development of a SaaS platform that uses AI to transform qualitative feedback into strategic
+                    business intelligence. Computer Science student at the Federal Institute of Education, Science and
+                    Technology of Northern Minas Gerais, with a solid foundation in algorithms and data structures,
+                    having reached the ICPC South America/Brazil Finals in 2023 and been Northern Minas Gerais champion
+                    twice. Passionate about creating scalable, high-impact solutions that solve real-world problems.</p>
             </div>
         </section>
         <hr class="section-divider">
 
-        <section class="section experience">
+        <section class="section experience scroll-hidden">
             <div class="container">
                 <h2><i class="fas fa-briefcase"></i> PROFESSIONAL EXPERIENCE</h2>
                 <div class="experience-item">
                     <div class="item-content">
-                        <h3>Flecha <a href="https://flecha.ia.br" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a></h3>
+                        <h3>Flecha <a href="https://flecha.ia.br" target="_blank" rel="noopener noreferrer"><i
+                                    class="fas fa-external-link-alt"></i></a></h3>
                         <p class="role">Co-Founder and CTO</p>
-                        <p>Co-Founder and CTO of SaaS platform that transforms qualitative feedback into strategic HR intelligence:</p>
+                        <p>Co-Founder and CTO of SaaS platform that transforms qualitative feedback into strategic HR
+                            intelligence:</p>
                         <ul>
-                            <li>Designed and implemented conversational AI system that collects anonymous feedback via WhatsApp and Web Chat, generating actionable insights for leaders</li>
-                            <li>Led full-stack platform development (Python/FastAPI, TypeScript/Next.js), with scalable microservices architecture and software engineering practices (Clean Architecture, CI/CD, automated testing) to ensure quality and maintainability</li>
-                            <li>Collaborated with HR specialists to translate engagement theory into technical features that solve real problems</li>
+                            <li>Designed and implemented conversational AI system that collects anonymous feedback via
+                                WhatsApp and Web Chat, generating actionable insights for leaders</li>
+                            <li>Led full-stack platform development (Python/FastAPI, TypeScript/Next.js), with scalable
+                                microservices architecture and software engineering practices (Clean Architecture,
+                                CI/CD, automated testing) to ensure quality and maintainability</li>
+                            <li>Collaborated with HR specialists to translate engagement theory into technical features
+                                that solve real problems</li>
                         </ul>
                     </div>
                     <p class="period">2025 – Present</p>
@@ -76,27 +95,38 @@
 
                 <div class="institution-group">
                     <div class="institution-header">
-                        <h3>CatruTech <a href="https://www.catru.tech/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a></h3>
+                        <h3>CatruTech <a href="https://www.catru.tech/" target="_blank" rel="noopener noreferrer"><i
+                                    class="fas fa-external-link-alt"></i></a></h3>
                         <p class="institution-period">2025 – Present</p>
                     </div>
-                    
+
                     <div class="position-item">
                         <div class="position-content">
-                            <h4>Vodsafe <a href="https://vodsafe.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a> · Full-Stack Developer</h4>
-                            <p>Initial participation in distributed streaming platform: stack with Django, React, Go and Docker/Ansible infrastructure.</p>
+                            <h4>Vodsafe <a href="https://vodsafe.com/" target="_blank" rel="noopener noreferrer"><i
+                                        class="fas fa-external-link-alt"></i></a> · Full-Stack Developer</h4>
+                            <p>Initial participation in distributed streaming platform: stack with Django, React, Go and
+                                Docker/Ansible infrastructure.</p>
                         </div>
                         <p class="position-period">2025 – Present</p>
                     </div>
 
                     <div class="position-item">
                         <div class="position-content">
-                            <h4>SISBAP - Brazilian System for Evaluations and Appraisals <a href="https://sisbap.com.br/ " target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a> · Full-Stack Intern</h4>
-                            <p>Full-stack role on SaaS platform for engineering, collaborating directly with senior team on evolution of critical features:</p>
+                            <h4>SISBAP - Brazilian System for Evaluations and Appraisals <a
+                                    href="https://sisbap.com.br/ " target="_blank" rel="noopener noreferrer"><i
+                                        class="fas fa-external-link-alt"></i></a> · Full-Stack Intern</h4>
+                            <p>Full-stack role on SaaS platform for engineering, collaborating directly with senior team
+                                on evolution of critical features:</p>
                             <ul>
-                                <li>Implemented intelligent technical report generation system enabling creation of complex documents with conditional logic and auto-formatting, eliminating repetitive manual work</li>
-                                <li>Developed and documented ecosystem integration APIs, connecting platform to external specialized reporting services</li>
-                                <li>Contributed to performance and security improvements, optimizing database queries and implementing robust validations in multi-tenant environment</li>
-                                <li>Actively participated in strategic frontend refactoring, migrating from Django Templates to React/TypeScript and improving end-user experience</li>
+                                <li>Implemented intelligent technical report generation system enabling creation of
+                                    complex documents with conditional logic and auto-formatting, eliminating repetitive
+                                    manual work</li>
+                                <li>Developed and documented ecosystem integration APIs, connecting platform to external
+                                    specialized reporting services</li>
+                                <li>Contributed to performance and security improvements, optimizing database queries
+                                    and implementing robust validations in multi-tenant environment</li>
+                                <li>Actively participated in strategic frontend refactoring, migrating from Django
+                                    Templates to React/TypeScript and improving end-user experience</li>
                             </ul>
                         </div>
                         <p class="position-period">2025 – 2025</p>
@@ -107,12 +137,17 @@
                     <div class="item-content">
                         <h3>Hhelp Healthtech</h3>
                         <p class="role">Intern</p>
-                        <p>Development of AI solutions for medical software, focusing on optimization and efficiency:</p>
+                        <p>Development of AI solutions for medical software, focusing on optimization and efficiency:
+                        </p>
                         <ul>
-                            <li>Implemented functionalities using Google Gemini and LangChain, integrating them with a full-stack (Next.js + TypeScript, FastAPI)</li>
-                            <li>Optimized transcription system through parallelism and chunking techniques, reducing processing time by 93%</li>
-                            <li>Worked with prompt engineering, RAG (Retrieval Augmented Generation), and multi-agent architecture</li>
-                            <li>Conducted constant evaluations of different LLM models to find the best cost-benefit for each application</li>
+                            <li>Implemented functionalities using Google Gemini and LangChain, integrating them with a
+                                full-stack (Next.js + TypeScript, FastAPI)</li>
+                            <li>Optimized transcription system through parallelism and chunking techniques, reducing
+                                processing time by 93%</li>
+                            <li>Worked with prompt engineering, RAG (Retrieval Augmented Generation), and multi-agent
+                                architecture</li>
+                            <li>Conducted constant evaluations of different LLM models to find the best cost-benefit for
+                                each application</li>
                         </ul>
                     </div>
                     <p class="period">2024 – 2025</p>
@@ -120,16 +155,19 @@
 
                 <div class="institution-group">
                     <div class="institution-header">
-                        <h3>Federal Institute of Education, Science and Technology of Northern Minas Gerais <a href="https://www.ifnmg.edu.br" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a></h3>
+                        <h3>Federal Institute of Education, Science and Technology of Northern Minas Gerais <a
+                                href="https://www.ifnmg.edu.br" target="_blank" rel="noopener noreferrer"><i
+                                    class="fas fa-external-link-alt"></i></a></h3>
                         <p class="institution-period">2022 – 2024</p>
                     </div>
-                    
+
                     <div class="position-item">
                         <div class="position-content">
                             <h4>Inclusive Monitor · NAPNE</h4>
                             <p>I worked as a programming monitor for students with special educational needs (SEN):</p>
                             <ul>
-                                <li>Developed a teaching methodology focused on planning, modularization, and code testing</li>
+                                <li>Developed a teaching methodology focused on planning, modularization, and code
+                                    testing</li>
                                 <li>Introduced version control concepts with Git and GitHub</li>
                                 <li>Achieved over 80% success rate in the Data Structures and Algorithms course</li>
                             </ul>
@@ -140,7 +178,8 @@
                     <div class="position-item">
                         <div class="position-content">
                             <h4>Web Developer · MakerSpace</h4>
-                            <p>Responsible for the development and maintenance of the MakerSpace institutional website, using HTML, CSS, and JavaScript to create intuitive and responsive interfaces.</p>
+                            <p>Responsible for the development and maintenance of the MakerSpace institutional website,
+                                using HTML, CSS, and JavaScript to create intuitive and responsive interfaces.</p>
                         </div>
                         <p class="position-period">2022 – 2023</p>
                     </div>
@@ -148,9 +187,11 @@
 
                 <div class="experience-item">
                     <div class="item-content">
-                        <h3>VGX Contact Center <a href="https://www.vgxcontactcenter.com.br/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a></h3>
+                        <h3>VGX Contact Center <a href="https://www.vgxcontactcenter.com.br/" target="_blank"
+                                rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a></h3>
                         <p class="role">Customer Acquisition Agent</p>
-                        <p>I worked in prospecting and acquiring new customers, achieving over 120 conversions per month through strategic and persuasive communication.</p>
+                        <p>I worked in prospecting and acquiring new customers, achieving over 120 conversions per month
+                            through strategic and persuasive communication.</p>
                     </div>
                     <p class="period">2020 – 2020</p>
                 </div>
@@ -201,13 +242,14 @@
         </section>
         <hr class="section-divider"> -->
 
-        <section class="section education">
+        <section class="section education scroll-hidden">
             <div class="container">
                 <h2><i class="fas fa-graduation-cap"></i> EDUCATION</h2>
                 <div class="education-item">
                     <div class="item-content">
                         <h3>Bachelor of Computer Science</h3>
-                        <p class="institution">Federal Institute of Education, Science and Technology of Northern Minas Gerais</p>
+                        <p class="institution">Federal Institute of Education, Science and Technology of Northern Minas
+                            Gerais</p>
                         <p class="location">Montes Claros, MG, Brazil</p>
                     </div>
                     <p class="period">2021 – Present</p>
@@ -216,11 +258,11 @@
         </section>
         <hr class="section-divider">
 
-        <section class="section courses">
+        <section class="section courses scroll-hidden">
             <div class="container">
                 <h2><i class="fas fa-book"></i> COURSES</h2>
                 <div class="course-item">
-                   <div class="item-content">
+                    <div class="item-content">
                         <h3>Brazilian ICPC Summer School 2025</h3>
                         <p class="institution">SBC / UNICAMP</p>
                         <p>Competitive Programming, Data Structures and Optimization Techniques</p>
@@ -265,7 +307,7 @@
                     <div class="item-content">
                         <h3>Novos Negócios em TIC</h3>
                         <p class="institution">Federal Institute of Education, Science and Technology of Ceará</p>
-                         <p>Native iOS Development, Design, and Entrepreneurship</p>
+                        <p>Native iOS Development, Design, and Entrepreneurship</p>
                     </div>
                     <p class="period">2023 - 2023</p>
                 </div>
@@ -289,7 +331,7 @@
         </section>
         <hr class="section-divider">
 
-        <section class="section competitions">
+        <section class="section competitions scroll-hidden">
             <div class="container">
                 <h2><i class="fas fa-trophy"></i> COMPETITIONS AND AWARDS</h2>
                 <div class="competition-item">
@@ -322,7 +364,7 @@
         </section>
         <hr class="section-divider">
 
-        <section class="section languages">
+        <section class="section languages scroll-hidden">
             <div class="container">
                 <h2><i class="fas fa-language"></i> LANGUAGES</h2>
                 <div class="language-list">
@@ -346,4 +388,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

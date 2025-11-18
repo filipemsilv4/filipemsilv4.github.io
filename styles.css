@@ -46,6 +46,9 @@ body {
     margin: 0 auto;
     padding: 0 15px;
     transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -66,7 +69,14 @@ body {
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .header {
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .print-url {
@@ -152,7 +162,13 @@ body {
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .header-content {
@@ -165,9 +181,11 @@ body {
     color: var(--text-color);
     margin-bottom: 10px;
     transition: color 0.3s ease;
+    letter-spacing: -0.02em;
 }
 
-.first-names, .last-names {
+.first-names,
+.last-names {
     display: inline;
 }
 
@@ -213,6 +231,8 @@ body {
     width: 100%;
     text-align: center;
     transition: background-color 0.3s ease, color 0.3s ease;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
 }
 
 .section h2 i {
@@ -229,11 +249,40 @@ body {
 }
 
 /* Experience Section */
-.experience-item, .education-item, .course-item, .competition-item {
+.experience-item,
+.education-item,
+.course-item,
+.competition-item,
+.institution-group {
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
     gap: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Adjust institution-group specific layout since it was not flex row before */
+.institution-group {
+    display: block;
+}
+
+.experience-item:hover,
+.education-item:hover,
+.course-item:hover,
+.competition-item:hover,
+.institution-group:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+    transform: translateY(-2px);
+}
+
+[data-theme="dark"] .experience-item:hover,
+[data-theme="dark"] .education-item:hover,
+[data-theme="dark"] .course-item:hover,
+[data-theme="dark"] .competition-item:hover,
+[data-theme="dark"] .institution-group:hover {
+    background-color: rgba(255, 255, 255, 0.02);
 }
 
 /* Institution Group */
@@ -325,7 +374,8 @@ body {
     transition: color 0.3s ease;
 }
 
-.period, .date {
+.period,
+.date {
     color: var(--role-color);
     font-size: 0.9em;
     min-width: max-content;
@@ -444,12 +494,16 @@ body {
     background-color: var(--progress-bg);
     position: relative;
     transition: background-color 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .progress-bar {
     height: 100%;
     background-color: var(--progress-bar);
-    transition: background-color 0.3s ease;
+    transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s ease;
+    width: 0;
+    /* Start at 0 for animation */
 }
 
 /* Education & Courses Section */
@@ -505,7 +559,10 @@ body {
         display: block;
     }
 
-    .experience-item, .education-item, .course-item, .competition-item {
+    .experience-item,
+    .education-item,
+    .course-item,
+    .competition-item {
         flex-direction: column;
         gap: 5px;
     }
@@ -514,7 +571,8 @@ body {
         padding-right: 0;
     }
 
-    .period, .date {
+    .period,
+    .date {
         margin-top: 0;
     }
 
@@ -561,6 +619,7 @@ body {
 
 /* Print styles */
 @media print {
+
     /* Força tema claro na impressão */
     [data-theme="dark"] {
         --bg-color: #FFFFFF !important;
@@ -578,11 +637,13 @@ body {
     }
 
     @page {
-        margin: 2cm 0; /* Recuo superior/inferior para todas as páginas */
+        margin: 2cm 0;
+        /* Recuo superior/inferior para todas as páginas */
     }
 
     @page :first {
-        margin-top: 0; /* Remove recuo superior apenas na primeira página */
+        margin-top: 0;
+        /* Remove recuo superior apenas na primeira página */
     }
 
     body {
@@ -597,8 +658,10 @@ body {
         width: auto;
         left: 0;
         right: 0;
-        margin: 0 -2cm; /* Compensa o padding do body */
-        padding: 40px 2cm 30px !important; /* Mantém padding interno do header */
+        margin: 0 -2cm;
+        /* Compensa o padding do body */
+        padding: 40px 2cm 30px !important;
+        /* Mantém padding interno do header */
         position: relative;
         background-color: #e6e6e3 !important;
     }
@@ -651,7 +714,8 @@ body {
 
     /* Ajuste especial para o topo da primeira página */
     .header:first-child {
-        margin-top: 0cm; /* Compensa o margin-top do @page geral */
+        margin-top: 0cm;
+        /* Compensa o margin-top do @page geral */
     }
 
     .container {
@@ -697,7 +761,8 @@ body {
         padding-right: 20px !important;
     }
 
-    .period, .date {
+    .period,
+    .date {
         margin-top: 2px !important;
         text-align: right !important;
         min-width: 80px !important;
@@ -772,19 +837,49 @@ body {
     hr.section-divider {
         margin: 15px 0;
     }
+
+    /* Reset animations for print */
+    .section,
+    .section.scroll-hidden,
+    .section.visible {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
 }
 
 /* Animation classes */
-.section.hidden {
+/* Animation classes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section.scroll-hidden {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .section.visible {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Staggered animation delay for children if needed, 
+   but for now we animate sections as they appear */
 
 .section.profile {
     margin-top: 30px;

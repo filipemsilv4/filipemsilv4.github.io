@@ -89,4 +89,38 @@ document.addEventListener('DOMContentLoaded', () => {
             applyTheme(newTheme);
         });
     }
+
+    // Intersection Observer para animações de scroll
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+
+                // Se for a seção de idiomas, anima as barras de progresso
+                if (entry.target.classList.contains('languages')) {
+                    const progressBars = entry.target.querySelectorAll('.progress-bar');
+                    progressBars.forEach(bar => {
+                        const width = bar.getAttribute('style').match(/width:\s*(\d+)%/)[1];
+                        bar.style.width = '0%'; // Reset para garantir animação
+                        setTimeout(() => {
+                            bar.style.width = width + '%';
+                        }, 100);
+                    });
+                }
+
+                observer.unobserve(entry.target); // Anima apenas uma vez
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.section').forEach(section => {
+        section.classList.add('scroll-hidden'); // Garante que começa oculto via JS se CSS falhar
+        observer.observe(section);
+    });
 });
